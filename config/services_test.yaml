@@ -1,0 +1,11 @@
+services:
+    test.parser:
+        alias: App\Service\Parser
+        public: true
+    test.domain.repository:
+        alias: App\Repository\Interfaces\DomainRepositoryInterface
+        public: true
+    test.ip_address.repository:
+        alias: App\Repository\Interfaces\IpAddressRepositoryInterface
+        public: true
+

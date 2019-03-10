@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+echo "Run project tests"
+${DIR}/../vendor/bin/phpunit -c ${DIR}/../phpunit.xml
+echo "Run CodeSniffer checks"
+${DIR}/../vendor/bin/phpcs --standard=${DIR}/../phpcs.xml  --extensions=php ${DIR}/../src
+echo "Run PHPStan checks"
+${DIR}/../vendor/bin/phpstan analyse -l 4 ${DIR}/../src/

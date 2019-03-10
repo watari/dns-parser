@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<ruleset name="Standard">
+    <config name="installed_paths" value="../../slevomat/coding-standard"/><!-- relative path from PHPCS source location -->
+    <description>A coding standard for development team</description>
+
+    <arg name="extensions" value="php,example"/>
+    <arg name="report-width" value="auto"/>
+    <arg name="colors"/>
+
+    <rule ref="PSR1"/>
+    <rule ref="PSR2"/>
+
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+        <properties>
+            <property name="newlinesCountBetweenOpenTagAndDeclare" value="1" />
+            <property name="newlinesCountAfterDeclare" value="2" />
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.ControlStructures.AssignmentInCondition"/>
+    <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.UseFromSameNamespace"/>
+    <rule ref="SlevomatCodingStandard.ControlStructures.DisallowShortTernaryOperator"/>
+    <rule ref="SlevomatCodingStandard.ControlStructures.DisallowYodaComparison"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.NamespaceDeclaration"/>
+    <rule ref="SlevomatCodingStandard.PHP.TypeCast"/>
+    <rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
+        <properties>
+            <property
+                    name="usefulAnnotations"
+                    type="array"
+                    value="
+                    @after,
+                    @throws,
+                    @before,
+                    @deprecated,
+                    @required,
+                    @MongoDB\,
+                    @Route,
+                    @method,
+                    @IsGranted,
+                    @dataProvider,
+                    @expectedException
+                    @expectedExceptionMessage
+                "
+            />
+            <property name="enableEachParameterAndReturnInspection" value="true"/>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Namespaces.DisallowGroupUse"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.MultipleUsesPerLine"/>
+    <rule ref="SlevomatCodingStandard.Commenting.EmptyComment"/>
+    <rule ref="SlevomatCodingStandard.ControlStructures.NewWithParentheses"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing">
+        <properties>
+            <property name="spacesCountBeforeColon" value="0" />
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Namespaces.UseDoesNotStartWithBackslash"/>
+
+    <!-- Only short syntax -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+    <!-- allow normal identation in doc comment (do not align) -->
+    <rule ref="Generic.Commenting.DocComment.TagValueIndent">
+        <severity>0</severity>
+    </rule>
+
+    <!-- no empty lines between param groups -->
+    <rule ref="Generic.Commenting.DocComment.NonParamGroup">
+        <severity>0</severity>
+    </rule>
+
+    <!-- do not force space in casting operators (allow "(int)$var" instead of "(int) $var") -->
+    <rule ref="Generic.Formatting.SpaceAfterCast.NoSpace">
+        <severity>0</severity>
+    </rule>
+
+    <!-- do not align multiple statements on the one level (due to different length of names, etc.) -->
+    <rule ref="Generic.Formatting.MultipleStatementAlignment.NotSame">
+        <severity>0</severity>
+    </rule>
+</ruleset>
