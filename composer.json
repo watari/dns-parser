@@ -2,9 +2,11 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.1.3",
+        "php": "7.2.*",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "1.6.*",
+        "ext-pgsql": "7.2.*",
         "doctrine/doctrine-bundle": "^1.10",
         "doctrine/orm": "^2.6",
         "symfony/console": "4.2.*",
